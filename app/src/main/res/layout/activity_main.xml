@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Start Location -->
+    <AutoCompleteTextView
+        android:id="@+id/startLocation"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Start location"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp" />
+
+    <!-- End Location -->
+    <AutoCompleteTextView
+        android:id="@+id/endLocation"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="End location"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp" />
+
+    <!-- Button to find path -->
+    <Button
+        android:id="@+id/findPathButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Path"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Map Image -->
+    <ImageView
+        android:id="@+id/mapImageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/campus_map"
+        android:scaleType="centerInside"
+        android:contentDescription="Map of campus" />
+
+    <!-- TextView to display directions -->
+    <TextView
+        android:id="@+id/directionsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:background="#f0f0f0"
+        android:text="Directions will appear here." />
+</LinearLayout>
