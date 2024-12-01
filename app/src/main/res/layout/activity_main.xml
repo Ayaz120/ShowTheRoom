@@ -1,95 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Start Location -->
-    <AutoCompleteTextView
-        android:id="@+id/startLocation"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Start location"
-        android:layout_marginBottom="8dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <!-- End Location -->
-    <AutoCompleteTextView
-        android:id="@+id/endLocation"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="End location"
-        android:layout_marginBottom="8dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp" />
-
-    <!-- Button to find path -->
-    <Button
-        android:id="@+id/findPathButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find Path"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:id="@+id/resetZoomButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset Zoom"
-        android:layout_marginBottom="8dp" />
-
-    <Spinner
-        android:id="@+id/floorSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp" />
-
-    <!-- Map Image -->
-
-    <!-- TextView to display directions -->
-    <TextView
-        android:id="@+id/directionsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="8dp"
-        android:background="#f0f0f0"
-        android:text="Directions will appear here." />
-
-    <TextView
-        android:id="@+id/currentFloorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textStyle="bold" />
-
-    <ExpandableListView
-        android:id="@+id/directionsExpandableListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#f0f0f0" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:id="@+id/mapImageView"
+        <AutoCompleteTextView
+            android:id="@+id/startLocation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/campus_map"
-            android:scaleType="centerInside"
-            android:contentDescription="Map of campus" />
+            android:layout_height="48dp"
+            android:hint="Start location"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
-        <ca.unb.mobiledev.show.PathOverlayView
-            android:id="@+id/pathOverlayView"
+        <AutoCompleteTextView
+            android:id="@+id/endLocation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="48dp"
+            android:hint="End location"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/findPathButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Find Path"
+            android:layout_marginBottom="16dp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/resetZoomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset Zoom"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/floorSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp" />
+
+        <TextView
+            android:id="@+id/currentFloorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/floor_indicactor_background"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/white" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/mapImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/campus_map"
+                android:scaleType="centerInside"
+                android:contentDescription="Map of campus" />
+
+            <ca.unb.mobiledev.show.PathOverlayView
+                android:id="@+id/pathOverlayView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="56dp">
+
+        <TextView
+            android:id="@+id/directionsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Directions"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/colorPrimary"
+            android:textColor="@android:color/white"/>
+
+        <ExpandableListView
+            android:id="@+id/directionsExpandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f0f0f0" />
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

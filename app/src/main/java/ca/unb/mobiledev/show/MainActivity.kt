@@ -1,5 +1,6 @@
 package ca.unb.mobiledev.show
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -8,9 +9,11 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import ca.unb.mobiledev.show.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlin.math.absoluteValue
 import kotlin.math.pow
 import kotlin.math.sqrt
+import android.widget.LinearLayout
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mapView: ImageView
@@ -26,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pathOverlayView: PathOverlayView
     private lateinit var directionsExpandableListView: ExpandableListView
     private lateinit var directionsAdapter: SimpleExpandableListAdapter
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
     private var scaleFactor = 1.0f
     private var lastTouchX = 0f
     private var lastTouchY = 0f
@@ -41,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         LocationPoint("Room 4", 700f, 800f, 2)
     )
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -85,6 +90,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
+
+        val bottomSheet: LinearLayout = findViewById(R.id.bottomSheet)
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
 
         floorSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
