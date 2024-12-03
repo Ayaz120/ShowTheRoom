@@ -54,9 +54,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/floor_indicactor_background"
+            android:background="@drawable/floor_indicator_background"
             android:padding="8dp"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white" />
 
         <FrameLayout
@@ -64,12 +64,12 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <ImageView
+            <ca.unb.mobiledev.show.ZoomableImageView
                 android:id="@+id/mapImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/campus_map"
-                android:scaleType="centerInside"
+                android:scaleType="matrix"
                 android:contentDescription="Map of campus" />
 
             <ca.unb.mobiledev.show.PathOverlayView
@@ -91,23 +91,26 @@
         app:behavior_peekHeight="56dp">
 
         <TextView
-            android:id="@+id/directionsTextView"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Directions"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="?attr/colorPrimary"
-            android:textColor="@android:color/white"/>
+        android:id="@+id/directionsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Directions"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"/>
 
         <ExpandableListView
             android:id="@+id/directionsExpandableListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f0f0f0" />
+            android:background="@android:color/white"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="0.5dp"
+            android:childDivider="@android:color/transparent"/>
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
